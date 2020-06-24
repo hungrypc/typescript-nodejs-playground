@@ -1,8 +1,12 @@
 import express, { Request, Response, NextFunction } from 'express'
+import { json } from 'body-parser'
 
 import todoRoutes from './routes/todos'
 
 const app = express()
+
+// parses body of incoming reqs and extracts json to populate body key
+app.use(json())
 
 app.use('/todos', todoRoutes)
 
